@@ -13,6 +13,7 @@ public class BulletController : MonoBehaviour
     public float speed;
     public BulletDirection direction;
     public GameObject explosionPrefab;
+    public int power;
     #endregion
 
     #region Privet Variables
@@ -42,8 +43,8 @@ public class BulletController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         Instantiate(explosionPrefab, col.contacts[0].point, Quaternion.identity);
-        Destroy(col.gameObject); // برای از بین بردن چیزی که بهش برخورد کرده
-        Destroy(gameObject); //برای از بین رفتن گلوله
+        //Destroy(col.gameObject); // برای از بین بردن چیزی که بهش برخورد کرده
+          Destroy(gameObject); //برای از بین رفتن گلوله
     }
     #endregion
 }
