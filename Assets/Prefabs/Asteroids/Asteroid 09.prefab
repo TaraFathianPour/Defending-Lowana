@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2299791029615037209
+--- !u!1 &1722709593327455385
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1755907969144636627}
-  - component: {fileID: 7781291624808345764}
-  - component: {fileID: 2250686399764186675}
-  - component: {fileID: 1175895656283059488}
-  - component: {fileID: 8841850423181500326}
-  - component: {fileID: 172568134938338452}
+  - component: {fileID: 7317820215058247623}
+  - component: {fileID: 422273337406728058}
+  - component: {fileID: 7444991306814071071}
+  - component: {fileID: 1298319015718649737}
+  - component: {fileID: 8166020399522042277}
+  - component: {fileID: 25367437330337593}
   m_Layer: 6
-  m_Name: Asteroid 05
+  m_Name: Asteroid 09
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1755907969144636627
+--- !u!4 &7317820215058247623
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2299791029615037209}
+  m_GameObject: {fileID: 1722709593327455385}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.71, y: 3.28, z: 0}
@@ -36,13 +36,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7781291624808345764
+--- !u!212 &422273337406728058
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2299791029615037209}
+  m_GameObject: {fileID: 1722709593327455385}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1518901527, guid: decd4ce9f1ff254469f457a4c2282d22, type: 3}
+  m_Sprite: {fileID: 1627196059, guid: efbfdeb212e4c1d4f82368212e7dd514, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,13 +88,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2250686399764186675
+--- !u!114 &7444991306814071071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2299791029615037209}
+  m_GameObject: {fileID: 1722709593327455385}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39b19305eab502243a39a630e4c1761f, type: 3}
@@ -102,16 +102,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   rotationSpeed: 4
-  health: 4
+  health: 3
   explosionPrefab: {fileID: 6395035038113673688, guid: 7d1bffbe0e489164ab143af52e6a6d3d, type: 3}
---- !u!50 &1175895656283059488
+--- !u!50 &1298319015718649737
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2299791029615037209}
+  m_GameObject: {fileID: 1722709593327455385}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -131,17 +131,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &8841850423181500326
+--- !u!95 &8166020399522042277
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2299791029615037209}
+  m_GameObject: {fileID: 1722709593327455385}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8c7cd313537be7c49ad86aa289ef58c6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 25d6c7b0d9836f746af86be2b717a13a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -152,13 +152,13 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!68 &172568134938338452
+--- !u!68 &25367437330337593
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2299791029615037209}
+  m_GameObject: {fileID: 1722709593327455385}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -187,26 +187,26 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 2.1924531, y: -0.24542904}
-  - {x: 1.8130429, y: 0.37268257}
-  - {x: 1.4933968, y: 0.7305639}
-  - {x: 1.2893186, y: 0.7697995}
-  - {x: 1.0542724, y: 0.75038195}
-  - {x: 0.39068604, y: 0.8697016}
-  - {x: -0.06860781, y: 0.7345674}
-  - {x: -0.5157528, y: 0.7759297}
-  - {x: -0.97515154, y: 0.9706099}
-  - {x: -1.421123, y: 0.7525437}
-  - {x: -2.1686554, y: 0.54198074}
-  - {x: -2.2141762, y: 0.20681572}
-  - {x: -2.1023555, y: -0.017501593}
-  - {x: -1.9571242, y: -0.3781414}
-  - {x: -1.5527611, y: -0.6319108}
-  - {x: -0.9960394, y: -0.8630562}
-  - {x: 0.71462774, y: -0.85921836}
-  - {x: 1.7667513, y: -0.6927042}
-  - {x: 2.083316, y: -0.5024173}
-  - {x: 2.1971047, y: -0.2569213}
+  - {x: 1.1237221, y: 0.00941968}
+  - {x: 0.9333334, y: 0.18147063}
+  - {x: 0.18687153, y: 0.390867}
+  - {x: -0.30688906, y: 1.048384}
+  - {x: -0.5190635, y: 1.1299012}
+  - {x: -0.91744137, y: 0.87637424}
+  - {x: -1.0928159, y: 0.5466666}
+  - {x: -1.0854025, y: 0.38736796}
+  - {x: -1.2078872, y: -0.032384634}
+  - {x: -1.1180854, y: -0.70597005}
+  - {x: -0.7892375, y: -0.90341735}
+  - {x: -0.4482379, y: -1.1167183}
+  - {x: -0.19230604, y: -0.9701786}
+  - {x: 0.046369076, y: -0.94891906}
+  - {x: 0.31465816, y: -1.0717702}
+  - {x: 0.58326864, y: -0.97274685}
+  - {x: 0.9082682, y: -0.95617247}
+  - {x: 1.0495169, y: -0.5274937}
+  - {x: 1.1995914, y: -0.37000394}
+  - {x: 1.1369655, y: 0}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

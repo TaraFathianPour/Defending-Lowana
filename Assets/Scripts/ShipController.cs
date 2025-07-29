@@ -11,10 +11,15 @@ public class ShipController : MonoBehaviour
     #region Public Variables
     public float speed;
     public GameObject bulletPrefab;
-    public GameObject gun;
+    public GameObject [] guns;
+    public int Health {  get { return _health; } }
+    public float fireRate = 0 ; 
     #endregion
 
     #region Privete Variables
+    [SerializeField] 
+    private int _health;
+    private float lastShot = 0 ;
     #endregion
 
     #region Public Methods
@@ -42,12 +47,47 @@ public class ShipController : MonoBehaviour
             );
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(bulletPrefab, gun.transform.position ,Quaternion.identity);
+            Fire(); //خودمون این متد و ساختیم
         }
     }
+
+    private void Fire()
+    {
+        if (Time.time > fireRate + lastShot)
+        {
+            for (int i = 0; i < guns.Length; i++)
+            {
+                Instantiate(bulletPrefab, guns[i].transform.position, Quaternion.identity);
+            }
+            lastShot = Time.time;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D col)
     {
-       
+       if (col.gameObject.tag == "bullet_enemy")
+        {
+            _health -= col.gameObject.GetComponent<BulletController>().power;
+            CheckHealth();
+        }
+       else if (col.gameObject.tag == "Asteroid")
+        {
+            _health -= col.gameObject.GetComponent<AsteroidController>().health;
+            CheckHealth();
+        }
+       else if (col.gameObject.tag == "ship_enemy")
+        {
+            _health -= col.gameObject.GetComponent<EnemyShipController>().power;
+            CheckHealth();
+        }
+    }
+    private void CheckHealth()
+    {
+        if (_health <= 0)
+        {
+            // to do improve
+            Destroy (gameObject);
+        }
     }
     #endregion
 }
