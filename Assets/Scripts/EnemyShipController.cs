@@ -11,7 +11,7 @@ public class EnemyShipController : MonoBehaviour
     public float hSpeed; // horizontal speed
     public GameObject bulletPrefab;
     public Vector2 timeToFire;
-    public GameObject gun;
+    public GameObject[] guns;
     public int power;
     #endregion
 
@@ -51,7 +51,10 @@ public class EnemyShipController : MonoBehaviour
     }
     private void Fire()
     {
-        Instantiate(bulletPrefab, gun.transform.position, quaternion.identity);
+        for (int i = 0; i < guns.Length; i++)
+        {
+            Instantiate(bulletPrefab, guns[i].transform.position, Quaternion.identity);
+        }
     }
     #endregion
 }
