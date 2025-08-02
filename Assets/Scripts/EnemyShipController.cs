@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -15,45 +15,78 @@ public class EnemyShipController : MonoBehaviour
     public int power;
     #endregion
 
-    #region Privet Variables
-    private int direction = 0; // 1=> right & -1 => left & 0 = no right no left 
+    #region Private Variables
+    private int direction = 0; // 1 => right, -1 => left, 0 => no movement
+    [SerializeField]
+    private int _health = 10; // مقدار اولیه سلامت
     #endregion
 
-    #region Public Methods
-    #endregion
-
-    #region Privet Methods
-    // Start is called before the first frame update
+    #region Unity Methods
     void Start()
     {
-        InvokeRepeating("ChangeDirection" , 1 , 0.5f );
+        InvokeRepeating("ChangeDirection", 1f, 0.5f);
         InvokeRepeating("Fire", timeToFire.x, timeToFire.y);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 move = Vector3.down;
         move.x = direction * hSpeed;
-        move.y = move.y * vSpeed;
+        move.y *= vSpeed;
         transform.position += move * Time.deltaTime;
         CheckSpaceShipOutOfBounds();
     }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "bullet_player")
+        {
+            _health -= col.gameObject.GetComponent<BulletController>().power;
+            CheckHealth();
+        }
+        else if (col.gameObject.tag == "Asteroid")
+        {
+            _health -= col.gameObject.GetComponent<AsteroidController>().health;
+            CheckHealth();
+        }
+        else if (col.gameObject.tag == "ship_player")
+        {
+            _health -= col.gameObject.GetComponent<ShipController>().Health;
+            CheckHealth();
+        }
+    }
+    #endregion
+
+    #region Private Methods
     private void CheckSpaceShipOutOfBounds()
     {
         Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(transform.position.x, -7, 7);
+        pos.x = Mathf.Clamp(pos.x, -7f, 7f);
         transform.position = pos;
     }
+
     private void ChangeDirection()
     {
-        direction = Random.Range(-1, 2); // -1 , 0 , 1
+        direction = Random.Range(-1, 2); // -1, 0, 1
     }
+
     private void Fire()
     {
         for (int i = 0; i < guns.Length; i++)
         {
             Instantiate(bulletPrefab, guns[i].transform.position, Quaternion.identity);
+        }
+    }
+
+    private void CheckHealth()
+    {
+        if (_health <= 0)
+        {
+            // افکت انفجار (اختیاری)
+            // Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            // AudioSource.PlayClipAtPoint(deathSound, transform.position);
+
+            Destroy(gameObject);
         }
     }
     #endregion

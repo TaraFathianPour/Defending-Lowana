@@ -14,12 +14,14 @@ public class ShipController : MonoBehaviour
     public GameObject [] guns;
     public int Health {  get { return _health; } }
     public float fireRate = 0 ; 
+    public Animator flameAnimaitor;
     #endregion
 
     #region Privete Variables
     [SerializeField] 
     private int _health;
     private float lastShot = 0 ;
+    private const string FLAME_ANIMATION = "speed";
     #endregion
 
     #region Public Methods
@@ -38,7 +40,9 @@ public class ShipController : MonoBehaviour
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        myTransform.position += new Vector3(speed * h * Time.deltaTime, speed * v * Time.deltaTime, 0);
+        Vector3 move = new Vector3(speed * h * Time.deltaTime, speed * v * Time.deltaTime, 0);
+        myTransform.position += move;
+        flameAnimaitor.SetFloat(FLAME_ANIMATION, move.sqrMagnitude);
         myTransform.position = new Vector3  //برای اینکه سفینه از صفحه بیرون نزنه
             (
                 math.clamp (myTransform.position.x , -7.95f , 7.95f),
