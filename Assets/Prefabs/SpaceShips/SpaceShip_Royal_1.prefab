@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f73adc457db994aa2910de94a9c55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 6
   bulletPrefab: {fileID: 306367408964349392, guid: c72843d6e06557e419cb151e23d4e006, type: 3}
   guns:
   - {fileID: 8536598785869990047}

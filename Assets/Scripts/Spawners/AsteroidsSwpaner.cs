@@ -5,7 +5,7 @@ using UnityEngine;
 public class AsteroidsSwpaner : MonoBehaviour
 {
     #region Public Variables
-     public GameObject asteroidPrefab;
+    public GameObject[] asteroidsPrefab;
     public Vector2 timeToSpawn; //زمانی برای پخش کردن
     public Vector2 xAxisLimitToSpawn;
     #endregion
@@ -20,14 +20,14 @@ public class AsteroidsSwpaner : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        StartCoroutine (spawn ());
+        StartCoroutine(spawn());
         //Invoke("spawn", Random.Range(timeToSpawn.x, timeToSpawn.y));
     }
 
     // Update is called once per frame
     private void Update()
     {
-       
+
     }
     //private void spawn()
     //{
@@ -36,12 +36,13 @@ public class AsteroidsSwpaner : MonoBehaviour
     //    pos.x = Random.Range(xAxisLimitToSpawn.x, xAxisLimitToSpawn.y);
     //    Invoke("spawn", Random.Range(timeToSpawn.x, timeToSpawn.y));
     //}
-    private IEnumerator spawn ()
+    private IEnumerator spawn()
     {
-        yield return new WaitForSeconds(Random.Range (timeToSpawn.x, timeToSpawn.y));
+        yield return new WaitForSeconds(Random.Range(timeToSpawn.x, timeToSpawn.y));
         Vector3 pos = transform.position;
         pos.x = Random.Range(xAxisLimitToSpawn.x, xAxisLimitToSpawn.y);
-        Instantiate(asteroidPrefab, pos , Quaternion.identity);
+        int rnd = Random.Range(0, asteroidsPrefab.Length);
+        Instantiate(asteroidsPrefab[rnd], pos, Quaternion.identity);
         StartCoroutine(spawn());
     }
     #endregion

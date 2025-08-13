@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b19305eab502243a39a630e4c1761f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 0.5
   rotationSpeed: 4
   health: 3
   explosionPrefab: {fileID: 6395035038113673688, guid: 7d1bffbe0e489164ab143af52e6a6d3d, type: 3}
@@ -119,7 +119,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 0.01
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
